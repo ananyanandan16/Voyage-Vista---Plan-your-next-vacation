@@ -47,18 +47,13 @@ const Quiz = () => {
       return;
     }
 
-    // Store answers in session storage for now
     const quizAnswers = {
       vacationType: selectedVacationType,
       activities: selectedActivities
     };
     sessionStorage.setItem('quizAnswers', JSON.stringify(quizAnswers));
     
-    // Navigate to the next quiz screen (will be implemented later)
-    toast({
-      title: "Answers saved!",
-      description: "The next part of the quiz will be implemented soon.",
-    });
+    navigate('/quiz-budget');
   };
 
   return (
