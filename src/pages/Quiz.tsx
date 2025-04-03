@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Music, TreeDeciduous, Beach, City, RollerCoaster } from "lucide-react";
+import { Music, Palm, Building, Palmtree, PalmtreeIcon, Trees, UtensilsCrossed, ShoppingBag } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 type VacationType = 'cultural' | 'nature' | 'beach' | 'city' | 'entertainment';
@@ -80,25 +80,25 @@ const Quiz = () => {
               onClick={() => handleVacationTypeSelect('cultural')}
             />
             <VacationTypeCard
-              icon={<TreeDeciduous size={24} />}
+              icon={<Trees size={24} />}
               title="Nature & Adventure"
               selected={selectedVacationType === 'nature'}
               onClick={() => handleVacationTypeSelect('nature')}
             />
             <VacationTypeCard
-              icon={<Beach size={24} />}
+              icon={<Palmtree size={24} />}
               title="Beach & Relaxation"
               selected={selectedVacationType === 'beach'}
               onClick={() => handleVacationTypeSelect('beach')}
             />
             <VacationTypeCard
-              icon={<City size={24} />}
+              icon={<Building size={24} />}
               title="City Life"
               selected={selectedVacationType === 'city'}
               onClick={() => handleVacationTypeSelect('city')}
             />
             <VacationTypeCard
-              icon={<RollerCoaster size={24} />}
+              icon={<ShoppingBag size={24} />}
               title="Theme Parks & Entertainment"
               selected={selectedVacationType === 'entertainment'}
               onClick={() => handleVacationTypeSelect('entertainment')}
