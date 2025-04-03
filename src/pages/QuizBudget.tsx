@@ -5,10 +5,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Slider } from "@/components/ui/slider";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
-import { DollarSign, CalendarDays, Clock } from "lucide-react";
+import { DollarSign, CalendarDays } from "lucide-react";
+import { QuizAnswers } from '@/types/quiz';
 
 type Budget = 'budget' | 'moderate' | 'luxury' | 'unlimited';
 type Duration = '1-3' | '4-7' | '8-14' | '15+';
@@ -18,7 +17,7 @@ const QuizBudget = () => {
   const { toast } = useToast();
   const [budget, setBudget] = useState<Budget | null>(null);
   const [duration, setDuration] = useState<Duration | null>(null);
-  const [prevAnswers, setPrevAnswers] = useState<any>(null);
+  const [prevAnswers, setPrevAnswers] = useState<QuizAnswers | null>(null);
 
   useEffect(() => {
     // Retrieve the previous answers from session storage
