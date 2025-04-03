@@ -1,10 +1,9 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Music, Building, Palmtree, Trees, ShoppingBag } from "lucide-react";
+import { Building, Palmtree, Trees, ShoppingBag } from "lucide-react";
 import VacationTypeCard from './VacationTypeCard';
-
-export type VacationType = 'cultural' | 'nature' | 'beach' | 'city' | 'entertainment';
+import { VacationType } from '@/types/quiz';
 
 interface VacationTypeSectionProps {
   selectedVacationType: VacationType | null;
@@ -21,7 +20,7 @@ const VacationTypeSection = ({ selectedVacationType, onVacationTypeSelect }: Vac
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <VacationTypeCard
-            icon={<Music size={24} />}
+            icon={<Building size={24} />}
             title="Cultural & Historical"
             selected={selectedVacationType === 'cultural'}
             onClick={() => onVacationTypeSelect('cultural')}
