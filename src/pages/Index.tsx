@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -7,10 +8,7 @@ const Index = () => {
   const { toast } = useToast();
 
   const handleStartQuiz = () => {
-    toast({
-      title: "Coming soon!",
-      description: "The quiz functionality will be implemented in the next update.",
-    });
+    // Instead of showing a toast, we'll now let the link handle the navigation
   };
 
   return (
@@ -22,7 +20,7 @@ const Index = () => {
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#" className="text-gray-600 hover:text-travel-blue transition-colors">How It Works</a>
-            <a href="#" className="text-gray-600 hover:text-travel-blue transition-colors">Destinations</a>
+            <Link to="/quiz" className="text-gray-600 hover:text-travel-blue transition-colors">Take Quiz</Link>
             <a href="#" className="text-gray-600 hover:text-travel-blue transition-colors">About</a>
           </nav>
         </div>
