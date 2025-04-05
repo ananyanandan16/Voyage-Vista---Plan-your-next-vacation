@@ -89,7 +89,7 @@ const QuizBudget = () => {
                 <RadioGroupItem value="budget" id="budget" />
                 <div className="grid gap-1.5 leading-none">
                   <Label htmlFor="budget" className="text-sm font-medium">Budget-friendly</Label>
-                  <p className="text-sm text-muted-foreground">₹0-₹1,00,000 per person</p>
+                  <p className="text-sm text-muted-foreground">Upto ₹10,000 per person</p>
                 </div>
               </div>
               
@@ -97,7 +97,7 @@ const QuizBudget = () => {
                 <RadioGroupItem value="moderate" id="moderate" />
                 <div className="grid gap-1.5 leading-none">
                   <Label htmlFor="moderate" className="text-sm font-medium">Moderate</Label>
-                  <p className="text-sm text-muted-foreground">₹1,00,000-₹2,50,000 per person</p>
+                  <p className="text-sm text-muted-foreground">₹10,000-₹35,000 per person</p>
                 </div>
               </div>
               
@@ -105,7 +105,7 @@ const QuizBudget = () => {
                 <RadioGroupItem value="luxury" id="luxury" />
                 <div className="grid gap-1.5 leading-none">
                   <Label htmlFor="luxury" className="text-sm font-medium">Luxury</Label>
-                  <p className="text-sm text-muted-foreground">₹2,50,000-₹4,00,000 per person</p>
+                  <p className="text-sm text-muted-foreground">₹35,000-₹1,00,000 per person</p>
                 </div>
               </div>
               
@@ -113,7 +113,7 @@ const QuizBudget = () => {
                 <RadioGroupItem value="unlimited" id="unlimited" />
                 <div className="grid gap-1.5 leading-none">
                   <Label htmlFor="unlimited" className="text-sm font-medium">Unlimited</Label>
-                  <p className="text-sm text-muted-foreground">₹4,00,000+ per person</p>
+                  <p className="text-sm text-muted-foreground">₹1,00,000+ per person</p>
                 </div>
               </div>
             </div>
