@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from "@/components/ui/use-toast";
-import VacationTypeSection, { VacationType } from '@/components/quiz/VacationTypeSection';
-import ActivitiesSection, { Activity } from '@/components/quiz/ActivitiesSection';
+import VacationTypeSection from '@/components/quiz/VacationTypeSection';
+import ActivitiesSection from '@/components/quiz/ActivitiesSection';
+import { VacationType, Activity } from '@/types/quiz';
 
 const Quiz = () => {
   const navigate = useNavigate();
