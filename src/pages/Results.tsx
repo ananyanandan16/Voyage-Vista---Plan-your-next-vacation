@@ -145,6 +145,69 @@ const Results = () => {
       }
     }
     
+    // Additional destinations for city and entertainment types
+    if (answers.vacationType === 'city') {
+      if (answers.budget === 'budget') {
+        mockDestinations.push({
+          name: "Jaipur, Rajasthan",
+          accommodation: "Budget heritage hotel",
+          reason: "Pink city with rich history and architecture",
+          cost: "₹9,500 per person",
+          duration: "3-4 days",
+          image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1470&auto=format&fit=crop"
+        });
+      } else if (answers.budget === 'moderate') {
+        mockDestinations.push({
+          name: "Bangkok, Thailand",
+          accommodation: "4-star city hotel",
+          reason: "Vibrant city with shopping, culture and nightlife",
+          cost: "₹30,000 per person",
+          duration: "5 days",
+          image: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?q=80&w=1974&auto=format&fit=crop"
+        });
+      } else {
+        mockDestinations.push({
+          name: "Dubai, UAE",
+          accommodation: "Luxury high-rise hotel",
+          reason: "Futuristic city with luxury shopping and experiences",
+          cost: "₹85,000 per person",
+          duration: "6 days",
+          image: "https://images.unsplash.com/photo-1583997052830-a631794e8a08?q=80&w=1378&auto=format&fit=crop"
+        });
+      }
+    }
+    
+    if (answers.vacationType === 'entertainment') {
+      if (answers.budget === 'budget') {
+        mockDestinations.push({
+          name: "Goa, India",
+          accommodation: "Beach hostel",
+          reason: "Beaches, nightlife and water activities",
+          cost: "₹12,000 per person",
+          duration: "4 days",
+          image: "https://images.unsplash.com/photo-1614082242765-7c98ca0f3df3?q=80&w=1470&auto=format&fit=crop"
+        });
+      } else if (answers.budget === 'moderate') {
+        mockDestinations.push({
+          name: "Phuket, Thailand",
+          accommodation: "Beach resort",
+          reason: "Beautiful beaches with entertainment and nightlife",
+          cost: "₹35,000 per person",
+          duration: "6 days",
+          image: "https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?q=80&w=1374&auto=format&fit=crop"
+        });
+      } else {
+        mockDestinations.push({
+          name: "Las Vegas, USA",
+          accommodation: "5-star casino resort",
+          reason: "World-class entertainment, casinos and shows",
+          cost: "₹110,000 per person",
+          duration: "7 days",
+          image: "https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?q=80&w=1374&auto=format&fit=crop"
+        });
+      }
+    }
+    
     // Default recommendations if no matches
     if (mockDestinations.length === 0) {
       mockDestinations.push(
@@ -174,42 +237,15 @@ const Results = () => {
         }
       );
     }
+
+    // Ensure we have exactly 3 recommendations while avoiding duplicates
+    const uniqueDestinations = Array.from(
+      new Map(mockDestinations.map(dest => [dest.name, dest])).values()
+    );
     
-    // Ensure we have exactly 3 recommendations
-    while (mockDestinations.length < 3) {
-      // Add default recommendations if we don't have enough
-      if (answers.budget === 'budget') {
-        mockDestinations.push({
-          name: "Pondicherry",
-          accommodation: "Boutique guesthouse",
-          reason: "French colonial charm with beaches",
-          cost: "₹9,500 per person",
-          duration: "3 days",
-          image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1470&auto=format&fit=crop"
-        });
-      } else if (answers.budget === 'moderate') {
-        mockDestinations.push({
-          name: "Darjeeling",
-          accommodation: "Heritage hill resort",
-          reason: "Colonial hill station with tea gardens and mountain views",
-          cost: "₹22,000 per person",
-          duration: "5 days",
-          image: "https://images.unsplash.com/photo-1544134543-c774d5cbb4bc?q=80&w=1470&auto=format&fit=crop"
-        });
-      } else {
-        mockDestinations.push({
-          name: "Bali, Indonesia",
-          accommodation: "Luxury villa with private pool",
-          reason: "Tropical paradise with cultural experiences",
-          cost: "₹70,000 per person",
-          duration: "7 days",
-          image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1438&auto=format&fit=crop"
-        });
-      }
-    }
-    
-    // Limit to 3 destinations
-    setDestinations(mockDestinations.slice(0, 3));
+    // If we have more than 3 unique destinations, take only the first 3
+    // If we have fewer than 3, we'll just use what we have
+    setDestinations(uniqueDestinations.slice(0, 3));
     setLoading(false);
   };
 
@@ -232,14 +268,21 @@ const Results = () => {
     );
   }
 
+  // Determine grid columns based on number of destinations
+  const gridClass = destinations.length === 1 
+    ? "grid-cols-1 max-w-md mx-auto" 
+    : destinations.length === 2 
+      ? "grid-cols-1 md:grid-cols-2 max-w-3xl mx-auto" 
+      : "grid-cols-1 md:grid-cols-3";
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
       <h1 className="text-3xl font-bold text-center mb-2">Your Perfect Destinations</h1>
       <p className="text-center text-muted-foreground mb-8">
-        Based on your preferences, we've found these destinations for you
+        Based on your preferences, we found {destinations.length} {destinations.length === 1 ? 'destination' : 'destinations'} for you
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className={`grid gap-6 mb-8 ${gridClass}`}>
         {destinations.map((destination, index) => (
           <Card key={index} className="overflow-hidden h-full flex flex-col">
             <div className="h-48 overflow-hidden">
