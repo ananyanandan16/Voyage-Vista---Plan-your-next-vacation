@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -59,11 +58,8 @@ const QuizBudget = () => {
     // Store in session storage
     sessionStorage.setItem('quizAnswers', JSON.stringify(updatedAnswers));
     
-    // Show success toast since we don't have the next page yet
-    toast({
-      title: "Preferences saved!",
-      description: "Your budget and duration preferences have been saved.",
-    });
+    // Navigate to the results page
+    navigate('/results');
   };
 
   const handleBack = () => {
