@@ -10,13 +10,16 @@ const HeroSection = () => {
     <div className="relative">
       {/* Hero section with background image */}
       <div 
-        className="min-h-[70vh] flex items-center justify-center bg-cover bg-center"
+        className="min-h-[70vh] flex items-center justify-center bg-cover bg-center relative"
         style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1573843981267-be1999ff37cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
           backgroundPosition: "center",
         }}
       >
-        <div className="container mx-auto text-center text-white px-4 py-16">
+        {/* Dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        <div className="container mx-auto text-center text-white px-4 py-16 relative z-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
             Find Your Perfect Travel Destination
           </h1>
