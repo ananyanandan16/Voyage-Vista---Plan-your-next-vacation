@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { QuizAnswers } from '@/types/quiz';
-import { Destination, generateRecommendations } from '@/utils/destinationRecommendations';
+import { Destination } from '@/types/destination';
+import { generateRecommendations } from '@/utils/destinationRecommendations';
 import DestinationCard from '@/components/destination/DestinationCard';
 import DestinationSkeleton from '@/components/destination/DestinationSkeleton';
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Hotel, DollarSign, CalendarDays } from "lucide-react";
-import { Destination } from '@/utils/destinationRecommendations';
+import { Destination } from '@/types/destination';
 
 interface DestinationCardProps {
   destination: Destination;
