@@ -1,10 +1,8 @@
 
 import { QuizAnswers } from "@/types/quiz";
-import { Destination } from "@/types/destination";
+import type { Destination } from "@/types/destination";
 import { getDestinationsByType } from "./destinations";
 import { getDefaultDestinations } from "./destinations/defaultDestinations";
-
-export { Destination };
 
 /**
  * Generates destination recommendations based on quiz answers

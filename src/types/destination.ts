@@ -1,6 +1,4 @@
 
-import { VacationType, Budget } from "@/types/quiz";
-
 export interface Destination {
   name: string;
   accommodation: string;
@@ -11,6 +9,6 @@ export interface Destination {
 }
 
 export interface DestinationFilter {
-  vacationType: VacationType;
-  budget: Budget;
+  vacationType: import("./quiz").VacationType;
+  budget: import("./quiz").Budget;
 }
