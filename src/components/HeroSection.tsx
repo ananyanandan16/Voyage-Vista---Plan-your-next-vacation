@@ -2,17 +2,20 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { MapPin, Compass, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 import FeatureCard from './FeatureCard';
 
-interface HeroSectionProps {
-  onStartQuiz: () => void;
-}
-
-const HeroSection = ({ onStartQuiz }: HeroSectionProps) => {
+const HeroSection = () => {
   return (
     <div className="relative">
       {/* Hero section with background image */}
-      <div className="bg-hero-pattern bg-cover bg-center min-h-[70vh] flex items-center justify-center">
+      <div 
+        className="min-h-[70vh] flex items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1573843981267-be1999ff37cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="container mx-auto text-center text-white px-4 py-16">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
             Find Your Perfect Travel Destination
@@ -20,13 +23,14 @@ const HeroSection = ({ onStartQuiz }: HeroSectionProps) => {
           <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8 drop-shadow-md">
             Answer a few questions, and we'll suggest the best destinations based on your preferences and budget.
           </p>
-          <Button 
-            onClick={onStartQuiz}
-            className="travel-button text-lg group"
-          >
-            Start Your Journey
-            <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
-          </Button>
+          <Link to="/quiz">
+            <Button 
+              className="travel-button text-lg group"
+            >
+              Start Your Journey
+              <span className="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
+            </Button>
+          </Link>
           
           <div className="mt-12 animate-float">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
@@ -54,28 +58,6 @@ const HeroSection = ({ onStartQuiz }: HeroSectionProps) => {
             title="Detailed Insights"
             description="Learn about estimated costs and what makes each destination special for your travel style."
           />
-        </div>
-      </div>
-
-      {/* How it works section */}
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">How It Works</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-travel-blue rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">1</div>
-            <h3 className="text-xl font-semibold mb-2">Answer Questions</h3>
-            <p className="text-gray-600">Tell us about your travel preferences, interests, and budget constraints.</p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 bg-travel-teal rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">2</div>
-            <h3 className="text-xl font-semibold mb-2">Get Matched</h3>
-            <p className="text-gray-600">Our algorithm matches your profile with perfect destinations around the world.</p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 bg-travel-orange rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">3</div>
-            <h3 className="text-xl font-semibold mb-2">Plan Your Trip</h3>
-            <p className="text-gray-600">Choose from budget, moderate, or luxury options with detailed cost estimates.</p>
-          </div>
         </div>
       </div>
     </div>
