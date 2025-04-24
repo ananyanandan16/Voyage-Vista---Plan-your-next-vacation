@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,12 @@ interface DestinationCardProps {
 }
 
 const DestinationCard = ({ destination }: DestinationCardProps) => {
+  const handleViewDetails = () => {
+    const searchQuery = `plan a trip for me to ${destination.name} for ${destination.duration}`;
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+    window.open(googleSearchUrl, '_blank');
+  };
+
   return (
     <Card className="overflow-hidden h-full flex flex-col">
       <div className="h-48 overflow-hidden">
@@ -50,7 +55,10 @@ const DestinationCard = ({ destination }: DestinationCardProps) => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full bg-travel-blue hover:bg-travel-blue/90">
+        <Button 
+          className="w-full bg-travel-blue hover:bg-travel-blue/90"
+          onClick={handleViewDetails}
+        >
           View Details
         </Button>
       </CardFooter>
