@@ -21,7 +21,7 @@ const Index = () => {
       <header className="bg-white shadow-sm py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center">
-            <span className="text-travel-blue text-2xl font-display font-bold">WanderlustCompass</span>
+            <span className="text-travel-blue text-2xl font-display font-bold">VoyageVista</span>
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#how-it-works" onClick={scrollToHowItWorks} className="text-gray-600 hover:text-travel-blue transition-colors">How It Works</a>
