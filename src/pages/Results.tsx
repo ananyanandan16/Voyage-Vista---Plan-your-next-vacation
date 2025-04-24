@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -17,7 +16,6 @@ const Results = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Retrieve quiz answers from session storage
     const storedAnswers = sessionStorage.getItem('quizAnswers');
     if (!storedAnswers) {
       toast({
@@ -32,16 +30,12 @@ const Results = () => {
     const answers = JSON.parse(storedAnswers);
     setQuizAnswers(answers);
     
-    // Generate destination recommendations based on answers
     const recommendedDestinations = generateRecommendations(answers);
-    
-    // Take at most 3 destinations
     setDestinations(recommendedDestinations.slice(0, 3));
     setLoading(false);
   }, [navigate, toast]);
 
   const handleStartOver = () => {
-    // Clear session storage and go back to first quiz page
     sessionStorage.removeItem('quizAnswers');
     navigate('/quiz');
   };
@@ -55,7 +49,6 @@ const Results = () => {
     );
   }
 
-  // Determine grid columns based on number of destinations
   const gridClass = destinations.length === 1 
     ? "grid-cols-1 max-w-md mx-auto" 
     : destinations.length === 2 
@@ -76,11 +69,8 @@ const Results = () => {
       </div>
       
       <div className="flex justify-center">
-        <Button variant="outline" onClick={handleStartOver} className="mr-4">
+        <Button variant="outline" onClick={handleStartOver}>
           Start Over
-        </Button>
-        <Button className="bg-travel-blue hover:bg-travel-blue/90">
-          Save Favorites
         </Button>
       </div>
     </div>
