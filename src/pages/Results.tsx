@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -30,9 +31,14 @@ const Results = () => {
     const answers = JSON.parse(storedAnswers);
     setQuizAnswers(answers);
     
-    const recommendedDestinations = generateRecommendations(answers);
-    setDestinations(recommendedDestinations.slice(0, 3));
-    setLoading(false);
+    // Simulate a small delay to allow React to render the loading skeleton first
+    const timer = setTimeout(() => {
+      const recommendedDestinations = generateRecommendations(answers);
+      setDestinations(recommendedDestinations.slice(0, 3));
+      setLoading(false);
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, [navigate, toast]);
 
   const handleStartOver = () => {
@@ -42,8 +48,11 @@ const Results = () => {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-16 flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold text-center mb-8">Finding your perfect destinations...</h1>
+      <div className="container mx-auto px-4 py-8 max-w-5xl">
+        <h1 className="text-3xl font-bold text-center mb-2">Finding your perfect destinations...</h1>
+        <p className="text-center text-muted-foreground mb-8">
+          We're personalizing recommendations based on your preferences
+        </p>
         <DestinationSkeleton />
       </div>
     );
